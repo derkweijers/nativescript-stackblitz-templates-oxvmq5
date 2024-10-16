@@ -1,4 +1,5 @@
-import { RouteProp } from '@react-navigation/core';
+import { Dialogs } from "@nativescript/core";
+import { RouteProp } from "@react-navigation/core";
 import * as React from "react";
 import { StyleSheet } from "react-nativescript";
 import { FrameNavigationProp } from "react-nativescript-navigation";
@@ -6,43 +7,34 @@ import { FrameNavigationProp } from "react-nativescript-navigation";
 import { MainStackParamList } from "../NavigationParamList";
 
 type ScreenTwoProps = {
-    route: RouteProp<MainStackParamList, "Two">,
-    navigation: FrameNavigationProp<MainStackParamList, "Two">,
+  route: RouteProp<MainStackParamList, "Two">;
+  navigation: FrameNavigationProp<MainStackParamList, "Two">;
 };
 
-export function ScreenTwo({ navigation, route }: ScreenTwoProps) {
-    return (
-        <flexboxLayout style={styles.container}>
-            <label style={styles.text}>
-                You're viewing screen two!
-            </label>
-            <label style={styles.text}>
-                Message: {route.params.message}
-            </label>
-            <button
-                style={styles.button}
-                onTap={() => navigation.goBack()}
-            >
-                Go back
-            </button>
-        </flexboxLayout>
-    );
+export function ScreenTwo({ navigation }: ScreenTwoProps) {
+  return (
+    <flexboxLayout style={styles.container}>
+      <label className="text-2xl mb-4 font-bold text-center">
+        Hello World!
+      </label>
+      <button style={styles.button} onTap={() => Dialogs.alert("Tapped!")}>
+        Tap me for an alert
+      </button>
+      <button style={styles.button} onTap={() => navigation.navigate("One")}>
+        Go to next screen
+      </button>
+    </flexboxLayout>
+  );
 }
 
 const styles = StyleSheet.create({
-    container: {
-        height: "100%",
-        flexDirection: "column",
-        justifyContent: "center",
-        backgroundColor: "yellow",
-    },
-    text: {
-        textAlignment: "center",
-        fontSize: 24,
-        color: "black",
-    },
-    button: {
-        fontSize: 24,
-        color: "#2e6ddf",
-    },
+  container: {
+    height: "100%",
+    flexDirection: "column",
+    justifyContent: "center",
+  },
+  button: {
+    fontSize: 24,
+    color: "#2e6ddf",
+  },
 });
