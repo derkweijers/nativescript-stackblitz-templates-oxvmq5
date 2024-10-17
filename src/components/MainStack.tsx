@@ -16,9 +16,9 @@ const TabViewNavigator = tabViewNavigatorFactory();
  */
 export const MainStack = () => (
   <BaseNavigationContainer>
-    <TabViewNavigator.Navigator initialRouteName="One">
-      <TabViewNavigator.Screen name="One" component={ScreenOne} />
-      <TabViewNavigator.Screen name="Two" component={ScreenTwo} />
-    </TabViewNavigator.Navigator>
+    <StackNavigator.Navigator initialRouteName="One">
+      <StackNavigator.Screen name="One" component={ScreenOne} />
+      <StackNavigator.Screen name="Two" component={ScreenTwo} />
+    </StackNavigator.Navigator>
   </BaseNavigationContainer>
 );
